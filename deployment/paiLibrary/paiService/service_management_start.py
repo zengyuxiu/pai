@@ -98,12 +98,12 @@ class serivce_management_start:
                 service_template_generater = service_template_generate.service_template_generate(self.cluster_object_model, serv, service_conf)
                 service_template_generater.run()
 
-                self.logger.info("Begin to start service: [ {0} ]".format(serv))
-                service_starter.run()
+                #self.logger.info("Begin to start service: [ {0} ]".format(serv))
+                #service_starter.run()
 
-                self.logger.info("Begin to clean all service's generated template file".format(serv))
-                service_template_cleaner = service_template_clean.service_template_clean(serv, service_conf)
-                service_template_cleaner.run()
+                #self.logger.info("Begin to clean all service's generated template file".format(serv))
+                #service_template_cleaner = service_template_clean.service_template_clean(serv, service_conf)
+                #service_template_cleaner.run()
 
                 self.logger.info("Successfully start {0}".format(serv))
                 self.logger.info("-----------------------------------------------------------")
