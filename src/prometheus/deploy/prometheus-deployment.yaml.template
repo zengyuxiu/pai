@@ -15,7 +15,6 @@
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-{% set prometheus_url = cluster_cfg["prometheus"]["url"] %}
 {% set prometheus_port = cluster_cfg["prometheus"]["port"] %}
 
 apiVersion: apps/v1
@@ -47,7 +46,8 @@ spec:
         args:
           - '--config.file=/etc/prometheus/prometheus.yml'
           - '--web.listen-address=0.0.0.0:{{prometheus_port}}'
-          - '--web.external-url={{prometheus_url}}'
+          - '--web.external-url={{ cluster_cfg["pylon"]["uri"] }}/prometheus/'
+          - '--web.route-prefix=prometheus'
         ports:
         - name: web
           containerPort: {{prometheus_port}}

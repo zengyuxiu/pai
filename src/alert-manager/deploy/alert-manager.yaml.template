@@ -38,7 +38,8 @@ spec:
         args:
           - '--config.file=/etc/alertmanager/config.yml'
           - '--storage.path=/alertmanager'
-          - '--web.external-url={{ cluster_cfg["alert-manager"]["url"] }}'
+          - '--web.external-url={{ cluster_cfg["pylon"]["uri"] }}/alert-manager/'
+          - '--web.route-prefix=alert-manager'
         ports:
         - name: alertmanager
           containerPort: {{ cluster_cfg["alert-manager"]["port"] }}
